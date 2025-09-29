@@ -28,6 +28,7 @@ mod tests {
         assert_eq!(green.red, 0);
         assert_eq!(green.green, 255);
         assert_eq!(green.blue, 0);
+        
     }
 
     #[test]
