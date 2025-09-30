@@ -3,11 +3,15 @@
 // Execute `rustlings hint enums2` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+
 
 #[derive(Debug)]
 enum Message {
     // TODO: define the different variants used below
+    Quit,
+    Move{x:i32,y:i32},    //此处需要用{}包裹，明确了move下用x，y两个属性
+    ChangeColor(i32,i32,i32),
+    Echo(String),
 }
 
 impl Message {
