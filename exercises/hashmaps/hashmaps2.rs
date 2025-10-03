@@ -14,7 +14,7 @@
 // Execute `rustlings hint hashmaps2` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+//哈希 map 是同质的：所有的键必须是相同类型，值也必须都是相同类型。
 
 use std::collections::HashMap;
 
@@ -40,6 +40,12 @@ fn fruit_basket(basket: &mut HashMap<Fruit, u32>) {
         // TODO: Insert new fruits if they are not already present in the
         // basket. Note that you are not allowed to put any type of fruit that's
         // already present!
+        //检查当前水果是否已经存在于哈希表中。
+        if basket.contains_key(&fruit) {
+            continue;
+        } else {
+            basket.insert(fruit, 2);
+        }
     }
 }
 
@@ -48,6 +54,7 @@ mod tests {
     use super::*;
 
     // Don't modify this function!
+    //创建一个包含三种水果的篮子
     fn get_fruit_basket() -> HashMap<Fruit, u32> {
         let mut basket = HashMap::<Fruit, u32>::new();
         basket.insert(Fruit::Apple, 4);
@@ -66,6 +73,7 @@ mod tests {
         assert_eq!(*basket.get(&Fruit::Lychee).unwrap(), 5);
     }
 
+    //哈希表中必须包含至少5种不同类型的水果
     #[test]
     fn at_least_five_types_of_fruits() {
         let mut basket = get_fruit_basket();
@@ -74,6 +82,7 @@ mod tests {
         assert!(count_fruit_kinds >= 5);
     }
 
+    //总水果数量大于11
     #[test]
     fn greater_than_eleven_fruits() {
         let mut basket = get_fruit_basket();
